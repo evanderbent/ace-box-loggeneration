@@ -3,11 +3,6 @@
     name: microk8s
 
 - include_role:
-    name: dt-activegate-classic
-  vars:
-    activegate_install_synthetic: true
-
-- include_role:
     name: dt-operator
 
 - include_role:
@@ -15,10 +10,20 @@
 
 - include_role:
     name: app-easytravel
+- include_role:
+    name: app-easytrade
+- include_role:
+    name: app-hipstershop
 
 - include_role:
     name: app-easytravel
     tasks_from: apply-monaco
+- include_role:
+    name: app-easytrade
+    tasks_from: apply-dt-configuration
+- include_role:
+    name: app-hipstershop
+    tasks_from: apply-dt-configuration
 
 # - include_role:
 #     name: app-easytravel
