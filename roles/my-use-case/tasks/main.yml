@@ -4,34 +4,13 @@
 
 - include_role:
     name: dt-operator
-
-- include_role:
-    name: monaco
     
 - name: Pause for 2 minutes to allow operator to start
   ansible.builtin.pause:
     minutes: 2
-
-- include_role:
-    name: app-easytravel
+    
 - include_role:
     name: app-easytrade
-- include_role:
-    name: app-hipstershop
-
-- include_role:
-    name: app-easytravel
-    tasks_from: apply-monaco
-- include_role:
-    name: app-easytrade
-    tasks_from: apply-dt-configuration
-- include_role:
-    name: app-hipstershop
-    tasks_from: apply-dt-configuration
-
-# - include_role:
-#     name: app-easytravel
-#     tasks_from: delete-monaco
 
 # Include and template use case specific values before installing Dashboard
 - set_fact:
